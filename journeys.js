@@ -59,12 +59,42 @@ const removeJourney = (index) => {
     localStorage.setItem("journeys", JSON.stringify(journeys));
 }
 
+//+ADDED
+const fetchData = (journey) => {
+    return  fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${journey.city}&appid=18ebb74c4c845cd84cc98885effee0ae`)
+            .then((response) => response.json())
+}
+
+//+ADDED
+const weatherText = (json) => {
+    const main = json.main;
+    const sky = json.weather[0];
+
+    const img = document.createElement("img");
+    img.src= `http://openweathermap.org/img/wn/${sky.icon}@2x.png`;
+    journeysList.appendChild(img);
+    
+    //to do: replace city.value with current city
+    return `
+        The current temperature in ${city.value} feels like ${main.temp_max} 
+        and the sky looks like this: ${sky.description}
+    `;
+}
+
 const allJourneys = () => {
     journeysList.innerHTML = "";
     getJourneys().forEach((journey, index) => {
         const insertion = document.createElement("div");
         insertion.innerHTML = createJourney(journey);
         journeysList.appendChild(insertion);
+        //include weather data section
+        const weatherInfo = document.createElement("div");
+        fetchData(journey).then(json => {
+            weatherInfo.innerHTML = weatherText(json);
+            console.log(json);
+            journeysList.appendChild(weatherInfo);
+        });
+        //end weather data section
         const deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = `delete entry`;
         journeysList.appendChild(deleteBtn);
