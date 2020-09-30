@@ -1,0 +1,59 @@
+body {
+    background-color: rgb(76, 189, 174);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+}
+
+h1 {
+    width: 15%;
+    font-size: 45pt;
+    margin: 5% 42.5%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+form {
+    width: 40%;
+    margin: 0% 30%;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    width: 33%;
+} 
+
+input, button {
+    border-style: none;
+    margin: 0.5rem 0rem 2rem 0rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+button {
+    background-color: rgb(50, 122, 113);
+    color: white;
+    font-weight: bold;
+    width: 20%;
+    margin: 0% 40%;
+}
+
+#desc {
+    height: 60%;
+    width: 87%;
+}
+
+#start, #end {
+    width: 70%;
+}
+
+#journeys-list {
+    width: 40%;
+    margin: 4% 30%;
+}
+
+#journeys-list div {
+    margin: 2% 0%;
+}
