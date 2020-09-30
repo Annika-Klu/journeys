@@ -32,7 +32,7 @@ input, button {
     border-radius: 0.5rem;
 }
 
-button {
+#addBtn {
     background-color: rgb(50, 122, 113);
     color: white;
     font-weight: bold;
@@ -56,4 +56,11 @@ button {
 
 #journeys-list div {
     margin: 2% 0%;
+}
+
+button {
+    color: rgb(50, 122, 113);
+    border-style: none;
+    background: transparent;
+    margin: -2% 0 0 0;
 }

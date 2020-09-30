@@ -8,7 +8,7 @@ const country = document.getElementById("country");
 const start = document.getElementById("start");
 const end = document.getElementById("end");
 const description = document.getElementById("desc");
-const button = document.getElementById("button");
+const add = document.getElementById("addBtn");
 
 //my own journeys I want to be displayed on page initially
 const initialJourneys = [
@@ -44,6 +44,7 @@ const saveJourney = (journey) => {
     localStorage.setItem("journeys", JSON.stringify(journeys));
 }
 
+//creates text using variables of journey array passed as parameter
 const createJourney = (journey) => {
     let journeyText = `
     From ${journey.start} to ${journey.end}, I visited ${journey.city} in ${journey.country}.<br>
@@ -52,12 +53,25 @@ const createJourney = (journey) => {
     return journeyText;
 }
 
+const removeJourney = (index) => {
+    let journeys = getJourneys();
+    journeys.splice(index, 1);
+    localStorage.setItem("journeys", JSON.stringify(journeys));
+}
+
 const allJourneys = () => {
     journeysList.innerHTML = "";
-    getJourneys().forEach((journey) => {
+    getJourneys().forEach((journey, index) => {
         const insertion = document.createElement("div");
         insertion.innerHTML = createJourney(journey);
         journeysList.appendChild(insertion);
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerHTML = `delete entry`;
+        journeysList.appendChild(deleteBtn);
+        deleteBtn.addEventListener("click", () => {
+            removeJourney(index);
+            allJourneys();
+        });
     });
 }
 
