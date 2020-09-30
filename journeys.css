@@ -63,4 +63,5 @@ button {
     border-style: none;
     background: transparent;
     margin: -2% 0 0 0;
+    padding-left: 0;
 }
