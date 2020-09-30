@@ -46,7 +46,8 @@ const saveJourney = (journey) => {
 
 const createJourney = (journey) => {
     let journeyText = `
-    From ${journey.start} to ${journey.end}, I visited ${journey.city} in ${journey.country}.
+    From ${journey.start} to ${journey.end}, I visited ${journey.city} in ${journey.country}.<br>
+    It was fantastic! My memories: "${journey.description}"
     `;
     return journeyText;
 }
@@ -67,14 +68,15 @@ const addJourney = (journey) => {
 
 const onSubmit = (event) => {
     event.preventDefault();
-    let journey = {};
-    journey.city = city.value;
-    journey.country = "Test";
-    journey.start = "2018-05-09";
-    journey.end = "2018-05-28";
-    journey.description = "Adding fictional trip";
+    let journey = {
+        city: city.value,
+        country: country.value,
+        start: start.value,
+        end: end.value,
+        description: description.value,
+    };
     addJourney(journey);
-// form.resetForm();
+    form.reset();
 }
 
 form.addEventListener("submit", onSubmit);
