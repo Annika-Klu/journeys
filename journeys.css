@@ -19,7 +19,7 @@ body {
 
 h1 {
     width: 15%;
-    font-size: 4rem;
+    font-size: 4em;
     margin: 5% 42.5%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -49,30 +49,32 @@ form .row {
     border: 2px solid red;
 }
 
-/*first row (personal info) placed further away from others (journey data)*/
-
-
-
-/*description row*/
-
-.four label {
-    width: 85%;
-}
-
-#desc {
-    width: 95%;
-    height: 5rem;
+input {
+    width: 86%;
 }
 
 input, button {
     border-style: none;
-    margin: 0.5rem 0rem 2rem 0rem;
+    margin: 0 0 1rem 0;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
 }
 
-#start, #end {
-    width: 70%;
+/*first row (personal info) placed further away from others (journey data)*/
+.one input {
+    margin-bottom: 2.5rem;
+}
+
+/*description row*/
+
+.four label {
+    width: 100%;
+    border: 2px solid black;
+}
+
+#desc {
+    width: 93.5%;
+    height: 5rem;
 }
 
 /*add journey btn*/
@@ -125,6 +127,4 @@ button {
     color: var(--turqoise);
     border-style: none;
     background: transparent;
-    margin: -2% 0 0 0;
-    padding-left: 0;
 }
