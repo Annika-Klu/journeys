@@ -6,6 +6,7 @@
     --yellow: #eacc16;
     --turqoise: #63a5a7;
     --aqua: #94d0c8;
+    --modish: modish, sans-serif;
 }
 
 /*GENERAL*/
@@ -17,11 +18,18 @@ body {
     font-size: 0.8rem;
 }
 
+h5 {
+    font-size: 2em;
+    width: 10%;
+    margin: 5% 0 -6% 45%;
+}
+
 h1 {
-    width: 15%;
-    font-size: 4em;
-    margin: 5% 42.5%;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:  10em;
+    color: var(--lightred);
+    width: 22%;
+    margin: auto;
+    font-family: var(--modish);
 }
 
 /*FORM*/
@@ -39,14 +47,12 @@ form {
 form .row {
     width: 70%;
     margin: 0 0 0 15%;
-    border: 2px solid pink;
 }
 
 /*usually there's two inputs per row that share equal width*/
 .flex label {
     width: 45%;
     margin: 0 2.5% 0 2.5%;
-    border: 2px solid red;
 }
 
 input {
@@ -55,21 +61,20 @@ input {
 
 input, button {
     border-style: none;
-    margin: 0 0 1rem 0;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    margin: 0.5em 0 1em 0;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
 }
 
 /*first row (personal info) placed further away from others (journey data)*/
 .one input {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.5em;
 }
 
 /*description row*/
 
 .four label {
     width: 100%;
-    border: 2px solid black;
 }
 
 #desc {
@@ -82,8 +87,8 @@ input, button {
     background-color: var(--turqoise);
     color: white;
     font-weight: bold;
-    width: 20%;
-    margin: 0% 40%;
+    width: 30%;
+    margin: 0% 35%;
 }
 
 /*LIST OF JOURNEYS*/
@@ -105,15 +110,21 @@ div .right {
     margin: 2% 0%;
 }
 
-.personalData {
+.bold {
     font-weight: bold;
     color: var(--turqoise); 
 }
 
 .travelLocation {
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-family: var(--modish);
     color: var(--lightred);
+    font-size: 3em;
+    margin-bottom: -15%;
+}
+
+img {
+    max-width: 60px;
+    max-height: 60px;
 }
 
 .quote {
@@ -124,7 +135,11 @@ div .right {
 /*delete btn*/
 
 button {
-    color: var(--turqoise);
+    color: rgba(99,165,167, 0.5);
     border-style: none;
     background: transparent;
+}
+
+button:hover {
+    color: var(--turqoise);
 }

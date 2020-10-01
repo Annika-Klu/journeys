@@ -53,10 +53,23 @@ const saveJourney = (journey) => {
 //creates text using variables of journey array passed as parameter
 const createJourney = (journey) => {
     let journeyText = `
-    <span class="personalData">${journey.name} from ${journey.origin}</span>
+    <span id="personalData" class="bold">
+        ${journey.name} from ${journey.origin}
+    </span>
     <br>
-    From ${journey.start} to ${journey.end}, I visited <span class="travelLocation">${journey.city} in ${journey.country}.</span>
-    <br>My memories: <span class="quote">"${journey.description}"<span>
+    <span class="travelLocation">
+        ${journey.city}, ${journey.country}
+    </span> 
+    <br>
+    <span class="dates">
+        <span class="bold">travel dates<br></span>
+        ${journey.start} to ${journey.end}
+    </span>
+    <br> <br>
+    <span class="bold">memories</span>
+    <br>
+    <span class="quote">"${journey.description}"<span>
+    </span>
     `;
     return journeyText;
 }
@@ -81,10 +94,10 @@ const weatherText = (json) => {
     const sky = json.weather[0];
     
     return `
-        <div class="flex">
+        <div id="weatherText" class="flex">
             <img id="weatherIcon" class="left" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
             <div class="right">
-             The current temperature in ${city} feels like ${main.temp_max}
+             The current temperature in ${city} feels like ${main.temp_max}°C
              and the sky looks like this: ${sky.description}
             </div>
         </div>
