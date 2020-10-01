@@ -3,6 +3,8 @@ const form = document.getElementById("form");
 const journeysList = document.getElementById("journeys-list");
 
 //form inputs
+const yourName = document.getElementById("name");
+const countryOrigin = document.getElementById("countryOrigin");
 const city = document.getElementById("city");
 const country = document.getElementById("country");
 const start = document.getElementById("start");
@@ -13,6 +15,8 @@ const add = document.getElementById("addBtn");
 //my own journeys I want to be displayed on page initially
 const initialJourneys = [
     {
+        name: "Annika",
+        origin: "Germany",
         city: "Ouarzazate",
         country: "Morocco",
         start: "2011-03-20",
@@ -20,6 +24,8 @@ const initialJourneys = [
         description: "Horseback riding trip in the desert area with a friend."
     },
     {
+        name: "Annika",
+        origin: "Germany",
         city: "Shanghai",
         country: "China",
         start: "2011-09-08",
@@ -47,8 +53,10 @@ const saveJourney = (journey) => {
 //creates text using variables of journey array passed as parameter
 const createJourney = (journey) => {
     let journeyText = `
-    From ${journey.start} to ${journey.end}, I visited <br> ${journey.city} in ${journey.country}.
-    My memories:<br>"${journey.description}"
+    <span class="personalData">${journey.name} from ${journey.origin}</span>
+    <br>
+    From ${journey.start} to ${journey.end}, I visited <span class="travelLocation">${journey.city} in ${journey.country}.</span>
+    <br>My memories: <span class="quote">"${journey.description}"<span>
     `;
     return journeyText;
 }
@@ -74,9 +82,9 @@ const weatherText = (json) => {
     
     return `
         <div class="flex">
-            <img id="weatherIcon" class="column left" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
-            <div class="column right">
-             The current temperature in ${city} feels like ${main.temp_max}<br>
+            <img id="weatherIcon" class="left" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
+            <div class="right">
+             The current temperature in ${city} feels like ${main.temp_max}
              and the sky looks like this: ${sky.description}
             </div>
         </div>
@@ -116,6 +124,8 @@ const addJourney = (journey) => {
 const onSubmit = (event) => {
     event.preventDefault();
     let journey = {
+        name: yourName.value,
+        origin: countryOrigin.value,
         city: city.value,
         country: country.value,
         start: start.value,

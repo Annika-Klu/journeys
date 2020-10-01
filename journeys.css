@@ -1,13 +1,25 @@
+/*colour palette from "travel blog palette" by Sara Cannon on dribbble*/
+:root {
+    --red: #c75056;
+    --lightred: #E38169;
+    --orange: #e8a243;
+    --yellow: #eacc16;
+    --turqoise: #63a5a7;
+    --aqua: #94d0c8;
+}
+
+/*GENERAL*/
+
 body {
-    background-color: rgb(76, 189, 174);
+    background-color: var(--aqua);
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 10pt;
+    font-size: 0.8rem;
 }
 
 h1 {
     width: 15%;
-    font-size: 45pt;
+    font-size: 4rem;
     margin: 5% 42.5%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -27,27 +39,29 @@ form {
 form .row {
     width: 70%;
     margin: 0 0 0 15%;
+    border: 2px solid pink;
 }
 
 /*usually there's two inputs per row that share equal width*/
 .flex label {
     width: 45%;
-    margin: 0 0 0 5%;
+    margin: 0 2.5% 0 2.5%;
+    border: 2px solid red;
 }
 
 /*first row (personal info) placed further away from others (journey data)*/
 
-.one {
-    margin-bottom: 2%;
-}
 
-/*description row whole width*/
+
+/*description row*/
+
 .four label {
-    width: 80%;
+    width: 85%;
 }
 
 #desc {
-    width: 100%;
+    width: 95%;
+    height: 5rem;
 }
 
 input, button {
@@ -57,19 +71,20 @@ input, button {
     border-radius: 0.5rem;
 }
 
+#start, #end {
+    width: 70%;
+}
+
+/*add journey btn*/
 #addBtn {
-    background-color: rgb(50, 122, 113);
+    background-color: var(--turqoise);
     color: white;
     font-weight: bold;
     width: 20%;
     margin: 0% 40%;
 }
 
-#start, #end {
-    width: 70%;
-}
-
-/*journeys list*/
+/*LIST OF JOURNEYS*/
 
 #journeys-list {
     width: 60%;
@@ -88,10 +103,26 @@ div .right {
     margin: 2% 0%;
 }
 
+.personalData {
+    font-weight: bold;
+    color: var(--turqoise); 
+}
+
+.travelLocation {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--lightred);
+}
+
+.quote {
+    font-style: italic;
+    margin-bottom: 5%;
+}
+
 /*delete btn*/
 
 button {
-    color: rgb(50, 122, 113);
+    color: var(--turqoise);
     border-style: none;
     background: transparent;
     margin: -2% 0 0 0;
