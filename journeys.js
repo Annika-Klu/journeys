@@ -83,7 +83,7 @@ const removeJourney = (index) => {
 //fetches data from API and returns in json format
 const fetchData = (journey) => {
     //to do: change to my personal key
-    return  fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${journey.city}&appid=18ebb74c4c845cd84cc98885effee0ae`)
+    return  fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${journey.city}&appid=11c6f4677a50a8f4992f135de7fafa0f`)
             .then((response) => response.json())
 }
 
