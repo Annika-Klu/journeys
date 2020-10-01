@@ -53,23 +53,29 @@ const saveJourney = (journey) => {
 //creates text using variables of journey array passed as parameter
 const createJourney = (journey) => {
     let journeyText = `
-    <span id="personalData" class="bold">
-        ${journey.name} from ${journey.origin}
-    </span>
+    <div class="journey-title">
+        <span class="personalData">
+            <span class="bold">${journey.name} from ${journey.origin}</span>
+            <br>
+            explored
+        </span>
+        <br>
+        <span class="travelLocation">
+            ${journey.city}, ${journey.country}
+        </span>
+    </div>
     <br>
-    <span class="travelLocation">
-        ${journey.city}, ${journey.country}
-    </span> 
-    <br>
-    <span class="dates">
-        <span class="bold">travel dates<br></span>
-        ${journey.start} to ${journey.end}
-    </span>
-    <br> <br>
-    <span class="bold">memories</span>
-    <br>
-    <span class="quote">"${journey.description}"<span>
-    </span>
+    <div class="column">
+        <span class="dates">
+            <span class="dates-title bold">travel dates<br></span>
+                ${journey.start} to ${journey.end}
+        </span>
+        <br> <br>
+        <span class="memories bold">memories</span>
+        <br>
+        <span class="quote">"${journey.description}"<span>
+        </span>
+    </div>
     `;
     return journeyText;
 }
@@ -94,13 +100,14 @@ const weatherText = (json) => {
     const sky = json.weather[0];
     
     return `
-        <div id="weatherText" class="flex">
-            <img id="weatherIcon" class="left" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
-            <div class="right">
+        <div id="weatherText" class="flex column">
+             <img id="weatherIcon" class="left" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
+             <div class="right">
              The current temperature in ${city} feels like ${main.temp_max}°C
              and the sky looks like this: ${sky.description}
-            </div>
+             </div>
         </div>
+        
     `;
 }
 

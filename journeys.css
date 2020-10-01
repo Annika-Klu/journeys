@@ -1,7 +1,7 @@
 /*colour palette from "travel blog palette" by Sara Cannon on dribbble*/
 :root {
     --red: #c75056;
-    --lightred: #E38169;
+    --lightred: #da674a;
     --orange: #e8a243;
     --yellow: #eacc16;
     --turqoise: #63a5a7;
@@ -16,6 +16,7 @@ body {
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.8rem;
+    box-sizing: border-box;
 }
 
 h5 {
@@ -32,6 +33,21 @@ h1 {
     font-family: var(--modish);
 }
 
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+/*HEADER-Backgrnd*/
+
+#header-background {
+    background-image: url("../header-background.svg");
+    background-size: 70%;
+    background-position-x: 50%;
+    background-position-y: -15%;
+    background-repeat: no-repeat;
+}
+
 /*FORM*/
 
 form {
@@ -39,17 +55,12 @@ form {
     margin: 0% 25%;
 }
 
-.flex {
-    display: flex;
-    align-items: center;
-}
-
 form .row {
-    width: 70%;
-    margin: 0 0 0 15%;
+    width: 80%;
+    margin: 0 0 0 10%;
 }
 
-/*usually there's two inputs per row that share equal width*/
+/*usually there's two inputs per form row > they share equal width*/
 .flex label {
     width: 45%;
     margin: 0 2.5% 0 2.5%;
@@ -96,6 +107,14 @@ input, button {
 #journeys-list {
     width: 60%;
     margin: 4% 20%;
+    background-color: var(--turqoise);
+    border-radius: 1em;
+    padding: 2em;
+}
+
+.journey-title {
+    width: 40%;
+    text-align: center;
 }
 
 div .left {
@@ -107,19 +126,23 @@ div .right {
 }
 
 #journeys-list div {
-    margin: 2% 0%;
+    width: 80%;
+    margin: 2% 10% 0 10%;
 }
 
 .bold {
     font-weight: bold;
-    color: var(--turqoise); 
+}
+
+.personalData, .dates-title, .memories {
+    color: var(--aqua);
 }
 
 .travelLocation {
     font-family: var(--modish);
     color: var(--lightred);
     font-size: 3em;
-    margin-bottom: -15%;
+    margin-top: -10%;
 }
 
 img {
@@ -135,9 +158,9 @@ img {
 /*delete btn*/
 
 button {
-    color: rgba(99,165,167, 0.5);
+    color: var(--turqoise);
+    background-color: rgb(99, 165, 167);
     border-style: none;
-    background: transparent;
 }
 
 button:hover {

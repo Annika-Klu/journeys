@@ -5,53 +5,55 @@
         <link rel="stylesheet" href="journeys.css" type="text/css">
     </head>
     <body>
-        <h5 id="pre-header">shared</h5>
-        <h1 id="header">Journeys</h1>
-        <form id="form">
-            <div class="flex-container">
-                <div class="flex row one">
-                    <label for="name">
-                        Your name<br>
-                        <input id="name" name="name" type="text" required>
-                    </label>
-                    <label for="countryOrigin">
-                        Your country of origin<br>
-                        <input id="countryOrigin" name="countryOrigin" type="text" required>
-                    </label>
-                </div>
+        <div id="header-background">
+            <h5 id="pre-header">shared</h5>
+            <h1 id="header">Journeys</h1>
+            <form id="form">
+                <div class="flex-container">
+                    <div class="flex row one">
+                        <label for="name">
+                            Your name<br>
+                            <input id="name" name="name" type="text" required>
+                        </label>
+                        <label for="countryOrigin">
+                            Your country of origin<br>
+                            <input id="countryOrigin" name="countryOrigin" type="text" required>
+                        </label>
+                    </div>
 
-                <div class="flex row two">
-                    <label for="city">
-                        Which city did you visit?<br>
-                        <input id="city" name="city" type="text" required>
-                    </label>
-                    <label for="country">
-                        Which country is it in?<br>
-                        <input id="country" name="country" type="text" required>
-                    </label>
-                </div>
+                    <div class="flex row two">
+                        <label for="city">
+                            Which city did you visit?<br>
+                            <input id="city" name="city" type="text" required>
+                        </label>
+                        <label for="country">
+                            Which country is it in?<br>
+                            <input id="country" name="country" type="text" required>
+                        </label>
+                    </div>
 
-                <div class="flex row three">
-                    <label for="start">
-                        Your journey's start date...<br>
-                        <input id="start" name="start" type="date" required>
-                    </label>
-                    <label>
-                        Your journey's end date...<br>
-                        <input id="end" name="end" type="date" required>
-                    </label>
+                    <div class="flex row three">
+                        <label for="start">
+                            Your journey's start date...<br>
+                            <input id="start" name="start" type="date" required>
+                        </label>
+                        <label>
+                            Your journey's end date...<br>
+                            <input id="end" name="end" type="date" required>
+                        </label>
+                    </div>
+                    
+                    <div class="flex row four">
+                        <label for="desc">
+                            Describe your memories in two or three sentences!
+                            <input id="desc" name="desc" type="text" maxlength="150" required>
+                        </label>
+                    </div>
                 </div>
-                
-                <div class="flex row four">
-                    <label for="desc">
-                        Describe your memories in a few sentences!
-                        <input id="desc" name="desc" type="text" maxlength="120" required>
-                    </label>
-                </div>
-            </div>
-            <br>
-            <button id="addBtn" type="submit">share your journey</button>
-        </form>
+                <br>
+                <button id="addBtn" type="submit">share your journey</button>
+            </form>
+        </div>
         <div id="journeys-list"></div>
         <script src="journeys.js"></script>
     </body>
