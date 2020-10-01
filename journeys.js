@@ -74,9 +74,9 @@ const weatherText = (json) => {
     
     return `
         <div class="flex">
-            <img id="weatherIcon" class="column" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
-            <div class="column">
-             The current temperature in ${city} feels like ${main.temp_max} 
+            <img id="weatherIcon" class="column left" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
+            <div class="column right">
+             The current temperature in ${city} feels like ${main.temp_max}<br>
              and the sky looks like this: ${sky.description}
             </div>
         </div>

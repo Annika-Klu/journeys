@@ -12,9 +12,11 @@ h1 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+/*FORM*/
+
 form {
-    width: 40%;
-    margin: 0% 30%;
+    width: 50%;
+    margin: 0% 25%;
 }
 
 .flex {
@@ -22,9 +24,31 @@ form {
     align-items: center;
 }
 
-.column {
-    width: 33%;
-} 
+form .row {
+    width: 70%;
+    margin: 0 0 0 15%;
+}
+
+/*usually there's two inputs per row that share equal width*/
+.flex label {
+    width: 45%;
+    margin: 0 0 0 5%;
+}
+
+/*first row (personal info) placed further away from others (journey data)*/
+
+.one {
+    margin-bottom: 2%;
+}
+
+/*description row whole width*/
+.four label {
+    width: 80%;
+}
+
+#desc {
+    width: 100%;
+}
 
 input, button {
     border-style: none;
@@ -41,23 +65,30 @@ input, button {
     margin: 0% 40%;
 }
 
-#desc {
-    height: 60%;
-    width: 87%;
-}
-
 #start, #end {
     width: 70%;
 }
 
+/*journeys list*/
+
 #journeys-list {
+    width: 60%;
+    margin: 4% 20%;
+}
+
+div .left {
+    width: 20%;
+}
+
+div .right {
     width: 40%;
-    margin: 4% 30%;
 }
 
 #journeys-list div {
     margin: 2% 0%;
 }
+
+/*delete btn*/
 
 button {
     color: rgb(50, 122, 113);

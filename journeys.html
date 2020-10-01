@@ -6,31 +6,41 @@
     <body>
         <h1 id="header">Journeys</h1>
         <form id="form">
-            <div class="flex">
-                <div class="column one">
+            <div class="flex-container">
+                <div class="flex row one">
+                    <label for="name">
+                        Your name<br>
+                        <input id="name" name="name" type="text">
+                    </label>
+                    <label for="countryOrigin">
+                        Your country of origin<br>
+                        <input id="countryOrigin" name="countryOrigin" type="text">
+                    </label>
+                </div>
+                <br>
+                <div class="flex row two">
                     <label for="city">
                         Which city did you visit?<br>
                         <input id="city" name="city" type="text">
                     </label>
-                    <br>
-                    <label for="start">
-                        Your journey's start date...
-                        <input id="start" name="start" type="date">
-                    </label>
-                </div>
-                <br>
-                <div class="column two">
                     <label for="country">
                         Which country is it in?<br>
                         <input id="country" name="country" type="text">
                     </label>
-                    <br>
+                </div>
+                <br>
+                <div class="flex row three">
+                    <label for="start">
+                        Your journey's start date...<br>
+                        <input id="start" name="start" type="date">
+                    </label>
                     <label>
-                        Your journey's end date...
+                        Your journey's end date...<br>
                         <input id="end" name="end" type="date">
                     </label>
                 </div>
-                <div class="column three">
+                <br>
+                <div class="flex row four">
                     <label for="desc">
                         Describe your trip briefly!
                         <input id="desc" name="desc" type="text">
@@ -38,7 +48,7 @@
                 </div>
             </div>
             <br>
-            <button id="addBtn" type="submit">add journey</button>
+            <button id="addBtn" type="submit">share your journey</button>
         </form>
         <div id="journeys-list"></div>
         <script src="journeys.js"></script>
