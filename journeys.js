@@ -87,35 +87,24 @@ const weatherText = (json) => {
 const allJourneys = () => {
     journeysList.innerHTML = "";
     getJourneys().forEach((journey, index) => {
-        // const insertion = document.createElement("div");
-        // insertion.innerHTML = createJourney(journey);
-        // journeysList.appendChild(insertion);
-        //include weather data section
-        const weatherInfo = document.createElement("div");
         fetchData(journey).then(json => {
+            //journey text
             const insertion = document.createElement("div");
             insertion.innerHTML = createJourney(journey);
             journeysList.appendChild(insertion);
-            //weatherdata
+            //weather data
+            const weatherInfo = document.createElement("div");
             weatherInfo.innerHTML = weatherText(json);
             journeysList.appendChild(weatherInfo);
-            //btn
+            //deleteBtn
             const deleteBtn = document.createElement("button");
             deleteBtn.innerHTML = `delete entry`;
             journeysList.appendChild(deleteBtn);
             deleteBtn.addEventListener("click", () => {
-            removeJourney(index);
-            allJourneys();
+                removeJourney(index);
+                allJourneys();
+            });
         });
-        });
-        //end weather data section
-        // const deleteBtn = document.createElement("button");
-        // deleteBtn.innerHTML = `delete entry`;
-        // journeysList.appendChild(deleteBtn);
-        // deleteBtn.addEventListener("click", () => {
-        //     removeJourney(index);
-        //     allJourneys();
-        // });
     });
 }
 
