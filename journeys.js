@@ -61,12 +61,15 @@ const removeJourney = (index) => {
 
 //+ADDED
 const fetchData = (journey) => {
+    //to do: change to my personal key
     return  fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${journey.city}&appid=18ebb74c4c845cd84cc98885effee0ae`)
             .then((response) => response.json())
 }
 
 //+ADDED
 const weatherText = (json) => {
+    console.log(json);
+    const city = json.name;
     const main = json.main;
     const sky = json.weather[0];
 
@@ -76,7 +79,7 @@ const weatherText = (json) => {
     
     //to do: replace city.value with current city
     return `
-        The current temperature in ${city.value} feels like ${main.temp_max} 
+        The current temperature in ${city} feels like ${main.temp_max} 
         and the sky looks like this: ${sky.description}
     `;
 }
@@ -84,24 +87,35 @@ const weatherText = (json) => {
 const allJourneys = () => {
     journeysList.innerHTML = "";
     getJourneys().forEach((journey, index) => {
-        const insertion = document.createElement("div");
-        insertion.innerHTML = createJourney(journey);
-        journeysList.appendChild(insertion);
+        // const insertion = document.createElement("div");
+        // insertion.innerHTML = createJourney(journey);
+        // journeysList.appendChild(insertion);
         //include weather data section
         const weatherInfo = document.createElement("div");
         fetchData(journey).then(json => {
+            const insertion = document.createElement("div");
+            insertion.innerHTML = createJourney(journey);
+            journeysList.appendChild(insertion);
+            //weatherdata
             weatherInfo.innerHTML = weatherText(json);
-            console.log(json);
             journeysList.appendChild(weatherInfo);
-        });
-        //end weather data section
-        const deleteBtn = document.createElement("button");
-        deleteBtn.innerHTML = `delete entry`;
-        journeysList.appendChild(deleteBtn);
-        deleteBtn.addEventListener("click", () => {
+            //btn
+            const deleteBtn = document.createElement("button");
+            deleteBtn.innerHTML = `delete entry`;
+            journeysList.appendChild(deleteBtn);
+            deleteBtn.addEventListener("click", () => {
             removeJourney(index);
             allJourneys();
         });
+        });
+        //end weather data section
+        // const deleteBtn = document.createElement("button");
+        // deleteBtn.innerHTML = `delete entry`;
+        // journeysList.appendChild(deleteBtn);
+        // deleteBtn.addEventListener("click", () => {
+        //     removeJourney(index);
+        //     allJourneys();
+        // });
     });
 }
 
