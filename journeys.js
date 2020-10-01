@@ -47,8 +47,8 @@ const saveJourney = (journey) => {
 //creates text using variables of journey array passed as parameter
 const createJourney = (journey) => {
     let journeyText = `
-    From ${journey.start} to ${journey.end}, I visited ${journey.city} in ${journey.country}.<br>
-    It was fantastic! My memories: "${journey.description}"
+    From ${journey.start} to ${journey.end}, I visited <br> ${journey.city} in ${journey.country}.
+    My memories:<br>"${journey.description}"
     `;
     return journeyText;
 }
@@ -59,31 +59,31 @@ const removeJourney = (index) => {
     localStorage.setItem("journeys", JSON.stringify(journeys));
 }
 
-//+ADDED
+//fetches data from API and returns in json format
 const fetchData = (journey) => {
     //to do: change to my personal key
     return  fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${journey.city}&appid=18ebb74c4c845cd84cc98885effee0ae`)
             .then((response) => response.json())
 }
 
-//+ADDED
+//creates and returns text based on API info
 const weatherText = (json) => {
-    console.log(json);
     const city = json.name;
     const main = json.main;
     const sky = json.weather[0];
-
-    const img = document.createElement("img");
-    img.src= `http://openweathermap.org/img/wn/${sky.icon}@2x.png`;
-    journeysList.appendChild(img);
     
-    //to do: replace city.value with current city
     return `
-        The current temperature in ${city} feels like ${main.temp_max} 
-        and the sky looks like this: ${sky.description}
+        <div class="flex">
+            <img id="weatherIcon" class="column" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
+            <div class="column">
+             The current temperature in ${city} feels like ${main.temp_max} 
+             and the sky looks like this: ${sky.description}
+            </div>
+        </div>
     `;
 }
 
+//empties journeyslist, then for all journeys produces journey and weather text and deleteBtn
 const allJourneys = () => {
     journeysList.innerHTML = "";
     getJourneys().forEach((journey, index) => {
