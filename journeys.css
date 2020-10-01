@@ -21,7 +21,7 @@ body {
 
 h5 {
     font-size: 2em;
-    width: 10%;
+    width: 20%;
     margin: 5% 0 -6% 45%;
 }
 
@@ -98,8 +98,8 @@ input, button {
     background-color: var(--turqoise);
     color: white;
     font-weight: bold;
-    width: 30%;
-    margin: 0% 35%;
+    width: 20%;
+    margin: 0% 40%;
 }
 
 /*LIST OF JOURNEYS*/
@@ -117,12 +117,12 @@ input, button {
     text-align: center;
 }
 
-div .left {
-    width: 20%;
+.left {
+    width: 10%;
 }
 
-div .right {
-    width: 40%;
+.right {
+    width: 90%;
 }
 
 #journeys-list div {
@@ -133,7 +133,6 @@ div .right {
 .bold {
     font-weight: bold;
 }
-
 .personalData, .dates-title, .memories {
     color: var(--aqua);
 }
@@ -141,7 +140,7 @@ div .right {
 .travelLocation {
     font-family: var(--modish);
     color: var(--lightred);
-    font-size: 3em;
+    font-size: 4em;
     margin-top: -10%;
 }
 
