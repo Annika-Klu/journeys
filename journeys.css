@@ -140,14 +140,21 @@ input, button {
 
 .travelLocation {
     font-family: var(--modish);
-    color: var(--lightred);
+    color: white;
     font-size: 4em;
 }
 
 .weatherIcon {
     min-width: 40px;
-    max-width: 60px;
-    max-height: 60px;
+    max-width: 100px;
+    min-height: 40px;
+    max-height: 100px;
+    margin: 0 0 0 10%;
+}
+
+.weatherText {
+    width: 90%;
+    margin: 0 0 0 5%;
 }
 
 .quote {
@@ -165,5 +172,12 @@ button {
 }
 
 button:hover {
-    color: var(--turqoise);
+    color: var(--lightred);
+}
+
+/*horizontal rule - separating line btw journeys*/
+
+hr {
+    color: var(--aqua);
+    stroke-width: 1em;
 }

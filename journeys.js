@@ -103,13 +103,14 @@ const weatherText = (json) => {
     return `
         <div class="column flex">
             <img class="weatherIcon" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
-            <div>
+            <div class="weatherText">
                 <span class="weatherTitle bold">weather data</span><br>
                 The current temperature in ${city} feels like ${main.temp_max}°C
                 and the sky looks like this: ${sky.description}
             </div>
         </div>
     </div>
+    <br>
     `;
 }
 
@@ -124,12 +125,16 @@ const allJourneys = () => {
             journeysList.appendChild(insertion);
             //deleteBtn
             const deleteBtn = document.createElement("button");
-            deleteBtn.innerHTML = `-delete-`;
+            deleteBtn.innerHTML = `- delete -`;
             journeysList.appendChild(deleteBtn);
             deleteBtn.addEventListener("click", () => {
                 removeJourney(index);
                 allJourneys();
             });
+            //line between journeys
+            const line = document.createElement("div");
+            line.innerHTML = `<br> <hr> <br>`
+            journeysList.appendChild(line);
         });
     });
 }
