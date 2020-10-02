@@ -12,6 +12,9 @@ const end = document.getElementById("end");
 const description = document.getElementById("desc");
 const add = document.getElementById("addBtn");
 
+//sorting dropdown selector
+const orderSelect = document.getElementById("order-select");
+
 //my own journeys I want to be displayed on page initially
 const initialJourneys = [
     {
@@ -34,13 +37,28 @@ const initialJourneys = [
     }
 ];
 
-//retrieves current journeys array from local storage
+//ADDED sorting function
+let sortList = "";
+
+const sortJourneys = (journeys) => {
+    if (sortList === "city") {
+        return journeys.sort((a, b) => a.city.localeCompare(b.city));
+    }
+    if (sortList === "country") {
+        return journeys.sort((a, b) => a.country.localeCompare(b.country));
+    }
+    if (sortList === "startDate") {
+        return journeys.sort((a, b) => a.start.localeCompare(b.start));
+    }
+};
+
+//retrieves current journeys from local storage, sorts, and returns as array
 const getJourneys = () => {
     let stringJourneys = localStorage.getItem("journeys");
     if (!stringJourneys) {
         return initialJourneys;
     }
-    return JSON.parse(stringJourneys);
+    return sortJourneys(JSON.parse(stringJourneys));
 }
 
 //gets current journeys array, saves journey to it, saves to local storage again
@@ -118,6 +136,7 @@ const weatherText = (json) => {
 const allJourneys = () => {
     journeysList.innerHTML = "";
     getJourneys().forEach((journey, index) => {
+        console.log(journey);
         fetchData(journey).then(json => {
             //journey & weather text
             const insertion = document.createElement("div");
@@ -144,6 +163,7 @@ const addJourney = (journey) => {
     allJourneys();
 }
 
+//on journey form submit
 const onSubmit = (event) => {
     event.preventDefault();
     let journey = {
@@ -160,5 +180,13 @@ const onSubmit = (event) => {
 }
 
 form.addEventListener("submit", onSubmit);
+
+//ADDED eventListener + function for select form
+const changeOrder = (event) => {
+    sortList = event.target.value;
+    allJourneys();
+}
+
+orderSelect.addEventListener("change", changeOrder);
 
 allJourneys();
