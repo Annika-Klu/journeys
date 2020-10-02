@@ -124,7 +124,7 @@ const allJourneys = () => {
             journeysList.appendChild(insertion);
             //deleteBtn
             const deleteBtn = document.createElement("button");
-            deleteBtn.innerHTML = `delete entry`;
+            deleteBtn.innerHTML = `-delete-`;
             journeysList.appendChild(deleteBtn);
             deleteBtn.addEventListener("click", () => {
                 removeJourney(index);

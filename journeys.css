@@ -35,7 +35,7 @@ h1 {
 
 .flex {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 /*HEADER-Backgrnd*/
@@ -99,7 +99,7 @@ input, button {
     color: white;
     font-weight: bold;
     width: 20%;
-    margin: 0% 40%;
+    margin: 0 0 0 40%;
 }
 
 /*LIST OF JOURNEYS*/
@@ -117,14 +117,12 @@ input, button {
     width: 100%;
     text-align: center;
     padding: 1em 0 0 0;
-    border: 2px solid  pink;
 }
 
 /*journey entry text columns*/
 /*div containing them*/
 .journeyColumns {
     padding: 0 2em 0 2em;
-    align-items: flex-start;
 }
 
 /*single columns*/
@@ -144,7 +142,6 @@ input, button {
     font-family: var(--modish);
     color: var(--lightred);
     font-size: 4em;
-    margin-top: -10%;
 }
 
 .weatherIcon {
@@ -161,9 +158,10 @@ input, button {
 /*delete btn*/
 
 button {
-    color: var(--turqoise);
+    color: var(--aqua);
     background-color: rgb(99, 165, 167);
     border-style: none;
+    margin: 0 0 0 2em;
 }
 
 button:hover {
