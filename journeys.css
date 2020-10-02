@@ -79,7 +79,7 @@ input, button {
 
 /*first row (personal info) placed further away from others (journey data)*/
 .one input {
-    margin-bottom: 2.5em;
+    margin-bottom: 3em;
 }
 
 /*description row*/
@@ -112,28 +112,31 @@ input, button {
     padding: 2em;
 }
 
+/*journey entry header*/
 .journey-title {
-    width: 40%;
+    width: 100%;
     text-align: center;
+    padding: 1em 0 0 0;
+    border: 2px solid  pink;
 }
 
-.left {
-    width: 10%;
+/*journey entry text columns*/
+/*div containing them*/
+.journeyColumns {
+    padding: 0 2em 0 2em;
+    align-items: flex-start;
 }
 
-.right {
-    width: 90%;
-}
-
-#journeys-list div {
-    width: 80%;
-    margin: 2% 10% 0 10%;
+/*single columns*/
+#journeys-list div .column {
+    width: 50%;
+    padding: 1em;
 }
 
 .bold {
     font-weight: bold;
 }
-.personalData, .dates-title, .memories {
+.personalData, .dates-title, .memories, .weatherTitle {
     color: var(--aqua);
 }
 
@@ -144,7 +147,8 @@ input, button {
     margin-top: -10%;
 }
 
-img {
+.weatherIcon {
+    min-width: 40px;
     max-width: 60px;
     max-height: 60px;
 }

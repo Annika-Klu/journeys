@@ -21,7 +21,7 @@ const initialJourneys = [
         country: "Morocco",
         start: "2011-03-20",
         end: "2011-03-27",
-        description: "Horseback riding trip in the desert area with a friend."
+        description: "Horseback riding trip in the desert area with a friend. We saw nomads, beautiful desert places with palm trees as well as oases and clay villages."
     },
     {
         name: "Annika",
@@ -30,7 +30,7 @@ const initialJourneys = [
         country: "China",
         start: "2011-09-08",
         end: "2011-10-15",
-        description: "Stayed there for an internship. Got the chance to travel a bit, too."
+        description: "Stayed there for an internship. Fascinating city but very crowded and noisy. Got the chance to travel to Hangzhou and Suzhou in the South, visiting an old village and the Hangzhou Lake."
     }
 ];
 
@@ -65,17 +65,18 @@ const createJourney = (journey) => {
         </span>
     </div>
     <br>
-    <div class="column">
-        <span class="dates">
+    <div class="flex journeyColumns">
+        <div class="column">
+            <span class="dates">
             <span class="dates-title bold">travel dates<br></span>
                 ${journey.start} to ${journey.end}
-        </span>
-        <br> <br>
-        <span class="memories bold">memories</span>
-        <br>
-        <span class="quote">"${journey.description}"<span>
-        </span>
-    </div>
+            </span>
+            <br> <br>
+            <span class="memories bold">memories</span>
+            <br>
+            <span class="quote">"${journey.description}"<span>
+            </span>
+        </div>
     `;
     return journeyText;
 }
@@ -100,14 +101,15 @@ const weatherText = (json) => {
     const sky = json.weather[0];
     
     return `
-        <div id="weatherText" class="flex column">
-             <img id="weatherIcon" class="left" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
-             <div class="right">
-             The current temperature in ${city} feels like ${main.temp_max}°C
-             and the sky looks like this: ${sky.description}
-             </div>
+        <div class="column flex">
+            <img class="weatherIcon" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
+            <div>
+                <span class="weatherTitle bold">weather data</span><br>
+                The current temperature in ${city} feels like ${main.temp_max}°C
+                and the sky looks like this: ${sky.description}
+            </div>
         </div>
-        
+    </div>
     `;
 }
 
@@ -116,14 +118,10 @@ const allJourneys = () => {
     journeysList.innerHTML = "";
     getJourneys().forEach((journey, index) => {
         fetchData(journey).then(json => {
-            //journey text
+            //journey & weather text
             const insertion = document.createElement("div");
-            insertion.innerHTML = createJourney(journey);
+            insertion.innerHTML = createJourney(journey) + weatherText(json);
             journeysList.appendChild(insertion);
-            //weather data
-            const weatherInfo = document.createElement("div");
-            weatherInfo.innerHTML = weatherText(json);
-            journeysList.appendChild(weatherInfo);
             //deleteBtn
             const deleteBtn = document.createElement("button");
             deleteBtn.innerHTML = `delete entry`;
