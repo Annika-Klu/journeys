@@ -33,6 +33,19 @@ h1 {
     font-family: var(--modish);
 }
 
+/*test - headers for smaller screens*/
+@media only screen and (max-width: 600px) {
+    h5 {
+        font-size: 1em;
+        width: 9%;
+        margin: 5% 0 -10% 45%;
+    }
+    h1 {
+        font-size: 5em;
+        width: 40%;
+    }
+}
+
 .flex {
     display: flex;
     align-items: flex-start;
@@ -46,6 +59,15 @@ h1 {
     background-position-x: 50%;
     background-position-y: -15%;
     background-repeat: no-repeat;
+}
+
+/*test for smaller screens*/
+@media only screen and (max-width: 600px) {
+    #header-background {
+        background-size: 90%;
+        background-position-x: 50%;
+        background-position-y: 5%;
+    }
 }
 
 /*FORM*/
@@ -130,6 +152,18 @@ input, button {
     width: 50%;
     padding: 1em;
 }
+
+/*layout for smaller screens - test*/
+@media only screen and (max-width: 600px) {
+    #journeys-list {
+      width: 100%;
+      margin: 2% 0;
+    }
+    #journeys-list div .column {
+        width: 100%;
+    }
+}
+
 
 .bold {
     font-weight: bold;
