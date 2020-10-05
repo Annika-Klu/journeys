@@ -137,6 +137,7 @@ const allJourneys = () => {
     getJourneys().forEach((journey, index) => {
         console.log(journey);
         fetchData(journey).then(json => {
+            console.log(json.name);
             //journey & weather text
             const insertion = document.createElement("div");
             insertion.innerHTML = createJourney(journey) + weatherText(json);
@@ -182,7 +183,7 @@ form.addEventListener("submit", onSubmit);
 
 //ADDED eventListener + function for select form
 const changeOrder = (event) => {
-    sortList === event.target.value;
+    sortList = event.target.value;
     allJourneys();
 }
 
