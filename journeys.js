@@ -38,7 +38,7 @@ const initialJourneys = [
 ];
 
 //ADDED sorting function
-let sortList = "";
+let sortList = "city";
 
 const sortJourneys = (journeys) => {
     if (sortList === "city") {
@@ -107,7 +107,6 @@ const removeJourney = (index) => {
 
 //fetches data from API and returns in json format
 const fetchData = (journey) => {
-    //to do: change to my personal key
     return  fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${journey.city}&appid=11c6f4677a50a8f4992f135de7fafa0f`)
             .then((response) => response.json())
 }
@@ -183,7 +182,7 @@ form.addEventListener("submit", onSubmit);
 
 //ADDED eventListener + function for select form
 const changeOrder = (event) => {
-    sortList = event.target.value;
+    sortList === event.target.value;
     allJourneys();
 }
 

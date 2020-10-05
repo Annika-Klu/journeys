@@ -93,7 +93,7 @@ input, button {
     height: 5rem;
 }
 
-/*add journey btn*/
+/*ADD JOURNEY BTN*/
 #addBtn {
     background-color: var(--turqoise);
     color: white;
@@ -101,6 +101,39 @@ input, button {
     width: 20%;
     margin: 0 0 0 40%;
 }
+
+/*SORTING FORM*/
+
+#sorting {
+    text-align: center;
+    margin-top: 4%;
+    color: var(--turqoise);
+    font-weight: bold;
+}
+
+#sorting label {
+    margin-right: 0.5em;
+}
+
+#sorting select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    color:var(--aqua);
+    background-color: var(--turqoise);
+}
+
+#sorting select option {
+    color: var(--aqua);
+    font-weight: bold;
+}
+
+/*arrow*/
+
+/*...coming up. Hopefully.*/
 
 /*LIST OF JOURNEYS*/
 
