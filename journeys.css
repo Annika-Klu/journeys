@@ -9,7 +9,7 @@
     --modish: modish, sans-serif;
 }
 
-/*GENERAL*/
+/*BODY, HEADERS*/
 
 body {
     background-color: var(--aqua);
@@ -28,27 +28,41 @@ h5 {
 h1 {
     font-size:  10em;
     color: var(--lightred);
-    width: 22%;
-    margin: auto;
     font-family: var(--modish);
-}
-
-/*test - headers for smaller screens*/
-@media only screen and (max-width: 600px) {
-    h5 {
-        font-size: 1em;
-        width: 9%;
-        margin: 5% 0 -10% 45%;
-    }
-    h1 {
-        font-size: 5em;
-        width: 40%;
-    }
 }
 
 .flex {
     display: flex;
     align-items: flex-start;
+}
+
+/*body, headers - media queries*/
+
+/*NOT WORKING: size changes h1 below 320px?*/
+@media only screen and (max-width: 320px) {
+    h5 {
+        font-size: 0.8em;
+        width: 5%;
+        margin: 5% 0 15% 45%;
+    }
+    h1 {
+        font-size: 1em;
+        width: 40%;
+        margin: 0 0 0 30%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    h5 {
+        font-size: 1em;
+        width: 5%;
+        margin: 5% 0 -6% 47.5%;
+    }
+    h1 {
+        font-size: 5em;
+        width: 30%;
+        margin: 0 0 0 35%;
+    }
 }
 
 /*HEADER-Backgrnd*/
@@ -61,12 +75,18 @@ h1 {
     background-repeat: no-repeat;
 }
 
-/*test for smaller screens*/
-@media only screen and (max-width: 600px) {
+/*header background - media queries*/
+
+@media only screen and (max-width: 320px) {
+    #header-background {
+        background-position-y: -5%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
     #header-background {
         background-size: 90%;
-        background-position-x: 50%;
-        background-position-y: 5%;
+        background-position-y: -2%;
     }
 }
 
@@ -82,10 +102,39 @@ form .row {
     margin: 0 0 0 10%;
 }
 
-/*usually there's two inputs per form row > they share equal width*/
+/*flex label == form "columns"*/
 .flex label {
     width: 45%;
     margin: 0 2.5% 0 2.5%;
+}
+
+/*form layout - media queries*/
+
+@media only screen and (max-width: 480px) {
+    form, form .row {
+        width: 100%;
+        margin: 0;
+    }
+
+    .flex {
+        display: inline-block;
+    }
+
+    .flex label {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    form {
+        width: 80%;
+        margin: 0% 10%;
+    }
+    
+    form .row {
+        width: 90%;
+        margin: 0 0 2% 5%;
+    }
 }
 
 input {
@@ -142,12 +191,12 @@ input, button {
 }
 
 /*journey entry text columns*/
-/*div containing them*/
+/*--div containing them*/
 .journeyColumns {
     padding: 0 2em 0 2em;
 }
 
-/*single columns*/
+/*--single columns*/
 #journeys-list div .column {
     width: 50%;
     padding: 1em;
@@ -163,7 +212,6 @@ input, button {
         width: 100%;
     }
 }
-
 
 .bold {
     font-weight: bold;
