@@ -105,8 +105,9 @@ const weatherText = (json) => {
             <img class="weatherIcon" src="http://openweathermap.org/img/wn/${sky.icon}@2x.png">
             <div class="weatherText">
                 <span class="weatherTitle bold">weather data</span><br>
-                The current temperature in ${city} feels like ${main.temp_max}°C
-                and the sky looks like this: ${sky.description}
+                ${city} is located at a longitutde of ${json.coord.lon} and a latitude of ${json.coord.lat}.<br>
+                Right now, the temperature there feels like ${main.temp_max}°C.
+                The current wind speed is ${json.wind.speed} m/s and the sky looks like this: ${sky.description}.
             </div>
         </div>
     </div>
@@ -125,7 +126,7 @@ const allJourneys = () => {
             journeysList.appendChild(insertion);
             //deleteBtn
             const deleteBtn = document.createElement("button");
-            deleteBtn.innerHTML = `- delete -`;
+            deleteBtn.innerHTML = `delete entry`;
             journeysList.appendChild(deleteBtn);
             deleteBtn.addEventListener("click", () => {
                 removeJourney(index);
