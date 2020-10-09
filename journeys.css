@@ -214,8 +214,9 @@ input, button {
     border: none;
     border-radius: 0.5em;
     padding: 0.5em 1em;
+    margin-top: 2em;
     color:var(--aqua);
-    background-color: var(--turqoise);
+    background-color: white;
 }
 
 #sorting select option {
