@@ -1,15 +1,13 @@
-/*colour palette from "travel blog palette" by Sara Cannon on dribbble*/
 :root {
-    --red: #c75056;
+    --red: #99370C;
     --lightred: #da674a;
-    --orange: #e8a243;
-    --yellow: #eacc16;
+    --salmon: #D9756A;
     --turqoise: #63a5a7;
     --aqua: #94d0c8;
     --modish: modish, sans-serif;
 }
 
-/*GENERAL*/
+/*BODY, HEADERS*/
 
 body {
     background-color: var(--aqua);
@@ -27,15 +25,57 @@ h5 {
 
 h1 {
     font-size:  10em;
-    color: var(--lightred);
-    width: 22%;
-    margin: auto;
+    color: var(--salmon);
     font-family: var(--modish);
+    width: 22%;
+    margin: 0 0 0 39%;
 }
 
 .flex {
     display: flex;
     align-items: flex-start;
+}
+
+/*headers - media queries*/
+
+@media only screen and (max-width: 320px) {
+    h5 {
+        font-size: 0.8em;
+        width: 5%;
+        margin: 5% 0 15% 45%;
+    }
+    h1 {
+        font-size: 1em;
+        width: 40%;
+        margin: 0 0 0 30%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    h5 {
+        margin: 5% 0 5% 45%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    h5 {
+        font-size: 1em;
+        width: 5%;
+        margin: 5% 0 -6% 47.5%;
+    }
+    h1 {
+        font-size: 5em;
+        width: 30%;
+        margin: 0 0 0 35%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #h1 {
+        font-size: 6em;
+        width: 50%;
+        margin: -5% 0 0 25%;
+    }
 }
 
 /*HEADER-Backgrnd*/
@@ -44,15 +84,38 @@ h1 {
     background-image: url("../header-background.svg");
     background-size: 70%;
     background-position-x: 50%;
-    background-position-y: -15%;
+    background-position-y: -5%;
     background-repeat: no-repeat;
+}
+
+/*header background - media queries*/
+
+@media only screen and (max-width: 320px) {
+    #header-background {
+        background-size: 100%;
+        background-position-y: 15%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #header-background {
+        background-size: 90%;
+        background-position-y: -2%;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    #header-background {
+        background-size: 85%;
+        background-position-y: 0;
+    }
 }
 
 /*FORM*/
 
 form {
-    width: 50%;
-    margin: 0% 25%;
+    width: 75%;
+    margin: 0% 12.5%;
 }
 
 form .row {
@@ -60,10 +123,39 @@ form .row {
     margin: 0 0 0 10%;
 }
 
-/*usually there's two inputs per form row > they share equal width*/
+/*flex label == form "columns"*/
 .flex label {
     width: 45%;
     margin: 0 2.5% 0 2.5%;
+}
+
+/*form layout - media queries*/
+
+@media only screen and (max-width: 480px) {
+    form, form .row {
+        width: 100%;
+        margin: 0;
+    }
+
+    .flex {
+        display: inline-block;
+    }
+
+    .flex label {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    form {
+        width: 80%;
+        margin: 0% 10%;
+    }
+    
+    form .row {
+        width: 90%;
+        margin: 0 0 2% 5%;
+    }
 }
 
 input {
@@ -145,6 +237,19 @@ input, button {
     padding: 2em;
 }
 
+/*journeys list - media query*/
+@media only screen and (max-width: 480px) {
+    #journeys-list {
+        width: 100%;
+        margin: 0;
+    }
+
+    #journeys-list > :first-child {
+        width: 90%;
+        margin: 0;
+    }
+}
+
 /*journey entry header*/
 .journey-title {
     width: 100%;
@@ -153,15 +258,26 @@ input, button {
 }
 
 /*journey entry text columns*/
-/*div containing them*/
+/*--div containing them*/
 .journeyColumns {
     padding: 0 2em 0 2em;
 }
 
-/*single columns*/
+/*--single columns*/
 #journeys-list div .column {
     width: 50%;
     padding: 1em;
+}
+
+/*layout for smaller screens - test*/
+@media only screen and (max-width: 600px) {
+    #journeys-list {
+      width: 100%;
+      margin: 2% 0;
+    }
+    #journeys-list div .column {
+        width: 100%;
+    }
 }
 
 .bold {
@@ -205,7 +321,8 @@ button {
 }
 
 button:hover {
-    color: var(--lightred);
+    color: var(--salmon);
+    font-weight: bold;
 }
 
 /*horizontal rule - separating line btw journeys*/
